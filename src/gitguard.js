@@ -44,9 +44,9 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-	if(changeInfo && 'url' in changeInfo && changeInfo.url) {
+	if(tab && 'url' in tab && tab.url && tab.status === 'complete') {
 		setTimeout(function() { 
-			guard(changeInfo.url, tabId);
+			guard(tab.url, tabId);
 		}, 500);
 	}
 });

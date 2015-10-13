@@ -10,6 +10,10 @@ A chrome plugin which alters GitHub merge button style accordingly to the specif
 
 ## Changelog
 
+### 1.0.1
+
+* Fixed issue that caused that 'Verified by GitGuard' was not shown after reloading the page (F5).
+
 ### 1.0.0
 
 * First release!
