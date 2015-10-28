@@ -20,6 +20,20 @@ function isBranchRed(jobs) {
 	return false;
 }
 
+function shouldDisable(entry) {
+	return entry.disable && entry.disable;
+}
+
+function handleRedMaster(tabId, entry) {
+	chrome.tabs.executeScript(tabId, {file: "decorator.js"});
+	chrome.tabs.executeScript(tabId, {file: entry.disable ? "disabler.js" : "enabler.js"});
+}
+
+function handleGreenMaster(tabId) {
+	chrome.tabs.executeScript(tabId, {file: "undecorator.js"});
+	chrome.tabs.executeScript(tabId, {file: "enabler.js"});
+}
+
 function guard(url, tabId) {
 	chrome.storage.local.get("entries", function(result) {
 		if(result.entries) {
@@ -28,7 +42,11 @@ function guard(url, tabId) {
 				var pullRegexp = new RegExp('^' + entry.url + '/\\d+$');
 				if(pullRegexp.test(url)) {
 					chrome.tabs.insertCSS(tabId, {file: "gitguard.css"});
-					chrome.tabs.executeScript(tabId, {file: isBranchRed(entry.jobs) ? "decorator.js" : "undecorator.js"});
+					if(isBranchRed(entry.jobs)) {
+						handleRedMaster(tabId, entry);
+					} else {
+						handleGreenMaster(tabId);
+					}
 				}
 			}
 		}

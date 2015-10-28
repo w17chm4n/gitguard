@@ -67,3 +67,21 @@ body {
 .left {
     float: left;
 }
+
+.disableLabel {
+    margin-top: 9px;
+    display: block;
+    float: right;
+    margin-right: 10px;
+}
+
+.disableCheckbox {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin-right: 6px;
+    vertical-align: sub;
+    position: relative;
+    top: -1px;
+    *overflow: hidden;
+}

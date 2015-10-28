@@ -6,8 +6,8 @@ function importConfiguration() {
 		alert('Invalid JSON format.');
 	}
 
-	for(var i = 0; i < configuration.entries; i++) {
-		configuration.entries.id = generateUUID();
+	for(var i = 0; i < configuration.entries.length; i++) {
+		configuration.entries[i].id = generateUUID();
 	}
 
 	chrome.storage.local.set(configuration);	

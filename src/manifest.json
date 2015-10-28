@@ -1,6 +1,6 @@
 {
 	"name": "GitGuard",
-	"version": "1.0.1",
+	"version": "1.1.1",
 	"description": "Alters GitHub merge button style accordingly to the specified Jenkins jobs.",
 	"manifest_version": 2,
 	"options_page": "options.html",

@@ -44,9 +44,26 @@ function removeEntry(id) {
 			}
 
 			chrome.storage.local.set(result);
+			location.reload();
 		}
+	});
+}
 
-		location.reload();
+function updateEntry(id) {
+	chrome.storage.local.get("entries", function(result) {
+		if(result.entries) {
+			var idx = -1;
+
+			for(var i = 0; i < result.entries.length; i++) {
+				var entry = result.entries[i];
+				if(entry.id === id) {
+					entry.disable = !entry.disable;
+					break;
+				}
+			}
+
+			chrome.storage.local.set(result);
+		}
 	});
 }
 
@@ -88,7 +105,23 @@ function createEntryElement(entry) {
 	button.innerHTML = "Remove";
 	button.addEventListener("click", function() {removeEntry(entry.id)});
 
+	var disableLabel = document.createElement("label");
+	disableLabel.className = "disableLabel";
+
+	var disableCheckbox = document.createElement("input");
+	disableCheckbox.className = "disableCheckbox";
+	disableCheckbox.type = "checkbox";
+	disableCheckbox.value = "disable";
+	disableCheckbox.checked = entry.disable;
+	disableCheckbox.addEventListener("change", function() {updateEntry(entry.id)});
+
+	var disableMessage = document.createTextNode("Disable merge button");
+
+	disableLabel.appendChild(disableCheckbox);
+	disableLabel.appendChild(disableMessage);
+
 	footer.appendChild(button);
+	footer.appendChild(disableLabel);
 
 	entryElement.appendChild(footer);
 
