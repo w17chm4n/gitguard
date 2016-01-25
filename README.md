@@ -10,6 +10,10 @@ A chrome plugin which alters GitHub merge button style accordingly to the specif
 
 ## Changelog
 
+### 1.2.0
+
+* Updated plugin to work with newest GitHub version.
+
 ### 1.1.1
 
 * Fixed issue when GitGuard by default was marking all pull requests as not ready to merge.

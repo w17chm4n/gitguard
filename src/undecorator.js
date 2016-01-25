@@ -1,4 +1,4 @@
-var mergeButtons = document.getElementsByClassName('btn btn-danger merge-branch-action js-details-target');
+var mergeButtons = document.getElementsByClassName('btn btn-danger js-merge-branch-action');
 var mergeButton;
 
 if(mergeButtons.length == 1) {
@@ -7,7 +7,7 @@ if(mergeButtons.length == 1) {
 	mergeButton.className = mergeButton.className.replace(' tooltipped tooltipped-s', '');
 	mergeButton.removeAttribute('aria-label');
 } else {
-	mergeButtons = document.getElementsByClassName('btn btn-primary merge-branch-action js-details-target');
+	mergeButtons = document.getElementsByClassName('btn btn-primary js-merge-branch-action');
 	if(mergeButtons.length == 1) {
 		mergeButton = mergeButtons[0];
 	}

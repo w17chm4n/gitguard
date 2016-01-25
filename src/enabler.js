@@ -1,7 +1,7 @@
-var mergeButtons = document.getElementsByClassName('btn btn-primary merge-branch-action js-details-target');
+var mergeButtons = document.getElementsByClassName('btn btn-primary js-merge-branch-action');
 
 if(mergeButtons.length != 1) {
-	mergeButtons = document.getElementsByClassName('btn btn-danger merge-branch-action js-details-target');
+	mergeButtons = document.getElementsByClassName('btn btn-danger js-merge-branch-action');
 }
 
 if (mergeButtons.length == 1) {
