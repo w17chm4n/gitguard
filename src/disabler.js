@@ -1,6 +1,11 @@
-var mergeButtons = document.getElementsByClassName('btn btn-danger js-merge-branch-action');
+var branchAction = document.getElementsByClassName('branch-action branch-action-state-clean')[0];
 
-if(mergeButtons.length == 1) {
-	var mergeButton = mergeButtons[0];
-	mergeButton.disabled = true;
+if (typeof branchAction != 'undefined') {
+	var buttonGroups = [].slice.call(branchAction.getElementsByClassName('BtnGroup'), 0);
+	buttonGroups.forEach((buttonGroup) => {
+		var buttons = [].slice.call(buttonGroup.getElementsByTagName('button'), 0);
+		buttons.forEach((button) => {
+			button.disabled = true;
+		});
+	});
 }
