@@ -10,6 +10,10 @@ A chrome plugin which alters GitHub merge button style accordingly to the specif
 
 ## Changelog
 
+### 1.3.0
+
+* Updated plugin to work with newest GitHub version.
+
 ### 1.2.0
 
 * Updated plugin to work with newest GitHub version.
